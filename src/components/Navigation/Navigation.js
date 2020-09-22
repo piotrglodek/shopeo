@@ -9,6 +9,7 @@ import {
   NavHamburger,
   MenuIcon,
   CloseIcon,
+  LogoIcon,
 } from './navigation.components';
 
 function Navigation() {
@@ -18,7 +19,10 @@ function Navigation() {
   return (
     <Nav>
       <NavContainer>
-        <NavLogo to='/'>Shopeo</NavLogo>
+        <NavLogo to='/'>
+          Shopeo
+          <LogoIcon />
+        </NavLogo>
         <NavMenu isOpen={isOpen}>
           <NavMenuItem>
             <NavMenuLink onClick={toggleMenu} to='/mens'>
