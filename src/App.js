@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import Providers from './Providers';
+import { Switch, Route } from 'react-router-dom';
+// components
 import { Navigation } from './components';
+// pages
+import { Home } from './pages';
 
 function App() {
   const [cartProducts, setProduct] = useState([]);
@@ -23,6 +27,9 @@ function App() {
   return (
     <Providers>
       <Navigation cartProps={cartProps} />
+      <Switch>
+        <Route path='/' component={Home} />
+      </Switch>
     </Providers>
   );
 }
