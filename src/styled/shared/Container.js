@@ -1,6 +1,6 @@
-import { css } from 'styled-components';
+import styled from 'styled-components';
 
-export const Container = css`
+export const Container = styled.div`
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;

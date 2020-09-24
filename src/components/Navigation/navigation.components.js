@@ -10,9 +10,8 @@ export const Nav = styled.nav`
   padding: 1.4rem 0;
   width: 100%;
 `;
-export const NavContainer = styled.div`
-  ${Container}
-  display:flex;
+export const NavContainer = styled(Container)`
+  display: flex;
   justify-content: space-between;
   align-items: center;
 `;
