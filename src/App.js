@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Providers from './Providers';
 import { Switch, Route } from 'react-router-dom';
 // components
@@ -7,9 +7,32 @@ import { Navigation } from './components';
 import { Home } from './pages';
 
 function App() {
+  /*
+  // hooks
+  import { useFetchProducts } from './hooks/useFetchProducts';
+import { gql } from 'graphql-request';
+  const url = process.env.REACT_APP_CMS_API_URL;
+  const query = gql`
+    {
+      products {
+        name
+        price
+        image {
+          url
+        }
+        category {
+          name
+        }
+      }
+    }
+  `;
+
+  const [data, isLoading] = useFetchProducts(url, query);
+
+
   const [cartProducts, setProduct] = useState([]);
   const cartItemsCount = cartProducts.length;
-  /*
+  
   const addProductToCart = (product) => {
     setProduct((prevArray) => [...prevArray, product]);
   };
@@ -22,7 +45,7 @@ function App() {
   };
   */
   const cartProps = {
-    cartItemsCount: cartItemsCount,
+    cartItemsCount: 0,
   };
   return (
     <Providers>
