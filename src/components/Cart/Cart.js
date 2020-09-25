@@ -1,16 +1,11 @@
 import React from 'react';
 import { CartLink, CartIcon, CartItemsCounter } from './cart.components';
 
-function Cart(props) {
-  const {
-    cartProps: { cartItemsCount },
-  } = props;
+function Cart() {
   return (
     <CartLink to='/cart'>
       <CartIcon />
-      {cartItemsCount > 0 && (
-        <CartItemsCounter>{cartItemsCount}</CartItemsCounter>
-      )}
+      <CartItemsCounter>1</CartItemsCounter>
     </CartLink>
   );
 }

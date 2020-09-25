@@ -10,10 +10,7 @@ import 'swiper/components/scrollbar/scrollbar.scss';
 // installation Swiper components
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
-function Slider(props) {
-  const {
-    config: { swiperConfig, swiperSlideConfig },
-  } = props;
+function Slider() {
   return (
     <Swiper>
       <SwiperSlide></SwiperSlide>
