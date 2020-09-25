@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from '../../styled/shared';
-import { ProductSection } from '../../components';
+import { ShopContext } from '../../store';
 
 function Home() {
-  return <Container>home</Container>;
+  const [state] = useContext(ShopContext);
+
+  return (
+    <Container>{state.loading ? 'loading...' : 'loaded content'}</Container>
+  );
 }
 
 export default Home;
