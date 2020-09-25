@@ -7,49 +7,9 @@ import { Navigation } from './components';
 import { Home } from './pages';
 
 function App() {
-  /*
-  // hooks
-  import { useFetchProducts } from './hooks/useFetchProducts';
-import { gql } from 'graphql-request';
-  const url = process.env.REACT_APP_CMS_API_URL;
-  const query = gql`
-    {
-      products {
-        name
-        price
-        image {
-          url
-        }
-        category {
-          name
-        }
-      }
-    }
-  `;
-
-  const [data, isLoading] = useFetchProducts(url, query);
-
-
-  const [cartProducts, setProduct] = useState([]);
-  const cartItemsCount = cartProducts.length;
-  
-  const addProductToCart = (product) => {
-    setProduct((prevArray) => [...prevArray, product]);
-  };
-  const removeProductFromCart = (productToDelete) => {
-    console.log(cartProducts);
-    const newProducts = cartProducts.filter(
-      (product) => product.productName !== productToDelete.productName
-    );
-    setProduct(newProducts);
-  };
-  */
-  const cartProps = {
-    cartItemsCount: 0,
-  };
   return (
     <Providers>
-      <Navigation cartProps={cartProps} />
+      <Navigation />
       <Switch>
         <Route path='/' component={Home} />
       </Switch>

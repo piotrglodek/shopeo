@@ -13,8 +13,7 @@ import {
 } from './navigation.components';
 import { Cart } from '../';
 
-function Navigation(props) {
-  const { cartProps } = props;
+function Navigation() {
   const [isOpen, setOpen] = useState(false);
   const toggleMenu = () => setOpen((prevState) => !prevState);
 
@@ -37,7 +36,7 @@ function Navigation(props) {
             </NavMenuLink>
           </NavMenuItem>
         </NavMenu>
-        <Cart cartProps={cartProps} />
+        <Cart />
         <NavHamburger onClick={toggleMenu}>
           {isOpen ? <CloseIcon /> : <MenuIcon />}
         </NavHamburger>
