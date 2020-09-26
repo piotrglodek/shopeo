@@ -38,7 +38,14 @@ function Navigation() {
           Shopeo
           <LogoIcon />
         </NavLogo>
-        <NavMenu isOpen={isOpen}>{menu}</NavMenu>
+        <NavMenu isOpen={isOpen}>
+          <NavMenuItem>
+            <NavMenuLink onClick={toggleMenu} to='/'>
+              All shoes
+            </NavMenuLink>
+          </NavMenuItem>
+          {menu}
+        </NavMenu>
         <Cart />
         <NavHamburger onClick={toggleMenu}>
           {isOpen ? <CloseIcon /> : <MenuIcon />}
