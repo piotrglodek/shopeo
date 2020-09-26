@@ -13,9 +13,22 @@ import {
 } from './navigation.components';
 import { Cart } from '../';
 
-function Navigation() {
+function Navigation(props) {
   const [isOpen, setOpen] = useState(false);
   const toggleMenu = () => setOpen((prevState) => !prevState);
+
+  const { cart, categories } = props;
+
+  const menu = categories.map((cat) => {
+    const { name, slug } = cat;
+    return (
+      <NavMenuItem key={slug}>
+        <NavMenuLink onClick={toggleMenu} to={`/category/${slug}`}>
+          {name}
+        </NavMenuLink>
+      </NavMenuItem>
+    );
+  });
 
   return (
     <Nav>
@@ -26,17 +39,13 @@ function Navigation() {
         </NavLogo>
         <NavMenu isOpen={isOpen}>
           <NavMenuItem>
-            <NavMenuLink onClick={toggleMenu} to='/mens'>
-              mens
+            <NavMenuLink onClick={toggleMenu} to='/'>
+              All shoes
             </NavMenuLink>
           </NavMenuItem>
-          <NavMenuItem>
-            <NavMenuLink onClick={toggleMenu} to='/womens'>
-              womens
-            </NavMenuLink>
-          </NavMenuItem>
+          {menu}
         </NavMenu>
-        <Cart />
+        <Cart cartItems={cart} />
         <NavHamburger onClick={toggleMenu}>
           {isOpen ? <CloseIcon /> : <MenuIcon />}
         </NavHamburger>

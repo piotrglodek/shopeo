@@ -8,43 +8,51 @@ export const Grid = styled.div`
         flex-flow: ${direction} ${wrap};
         align-items:${alignItems};
         justify-content:${justifyContent};
+
   `}
 
   & > div {
     padding: ${({ spacing }) => spacing * 2}px;
   }
-`;
-
-export const GridItem = styled.div`
-  width: 100%;
-  flex-basis: 100%;
 
   ${({ sm }) =>
     sm &&
     `
-    @media screen and (min-width:600px){
-      max-width: ${sm}%;
-      flex-basis:${sm}%;
+    & > div{
+        @media screen and (min-width:600px){
+        max-width: ${sm}%;
+        flex-basis:${sm}%;
+      }
     }
   `}
 
   ${({ md }) =>
     md &&
     `
+    & > div{
       @media screen and (min-width:960px){
         max-width: ${md}%;
         flex-basis:${md}%;
       }
+    }
     `}
 
   ${({ lg }) =>
     lg &&
     `
-    @media screen and (min-width:1280px){
-      max-width: ${lg}%;
-      flex-basis:${lg}%;
+    & > div{
+      @media screen and (min-width:1280px){
+        max-width: ${lg}%;
+        flex-basis:${lg}%;
+      }
     }
   `}
+`;
+
+export const GridItem = styled.div`
+  width: 100%;
+  flex-basis: 100%;
+  padding: 1rem;
 `;
 
 Grid.propTypes = {
@@ -53,6 +61,9 @@ Grid.propTypes = {
   justifyContent: PropTypes.string,
   alignItems: PropTypes.string,
   wrap: PropTypes.string,
+  sm: PropTypes.number,
+  md: PropTypes.number,
+  lg: PropTypes.number,
 };
 
 Grid.defaultProps = {
@@ -61,10 +72,4 @@ Grid.defaultProps = {
   justifyContent: 'start',
   alignItems: 'start',
   wrap: 'nowrap',
-};
-
-GridItem.propTypes = {
-  sm: PropTypes.number,
-  md: PropTypes.number,
-  lg: PropTypes.number,
 };

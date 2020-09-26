@@ -3,14 +3,9 @@ import { Link } from 'react-router-dom';
 
 export const ProductLink = styled(Link)`
   text-decoration: none;
-  display: block;
   width: 100%;
-  padding: 2rem 0;
-
-  @media screen and (min-width: 360px) {
-    width: 32rem;
-    padding: 2rem;
-  }
+  padding: 1rem;
+  display: block;
 `;
 
 export const ProductWrapper = styled.div`
@@ -26,10 +21,12 @@ export const ProductWrapper = styled.div`
   }
 `;
 
-export const ProductImage = styled.img`
-  display: block;
-  width: 25rem;
-  height: 25rem;
+export const ProductImage = styled.div`
+  width: 24.8rem;
+  height: 24.8rem;
+  background: url(${({ src }) => src}) no-repeat center center;
+  background-size: contain;
+  margin: 0 auto;
 `;
 export const ProductDetails = styled.div``;
 

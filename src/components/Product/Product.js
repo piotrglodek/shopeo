@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
-  ProductWrapper,
   ProductLink,
+  ProductWrapper,
   ProductImage,
   ProductDetails,
   ProductName,
@@ -10,14 +9,21 @@ import {
 } from './product.components';
 
 function Product(props) {
-  const { to } = props;
+  const { shoe } = props;
+  const {
+    id,
+    name,
+    price,
+    image: { url },
+  } = shoe;
+
   return (
-    <ProductLink to={to}>
+    <ProductLink to={`/shoe/${id}}`}>
       <ProductWrapper>
-        <ProductImage src='' alt='' />
+        <ProductImage src={url} />
         <ProductDetails>
-          <ProductName></ProductName>
-          <ProductCost></ProductCost>
+          <ProductName>{name}</ProductName>
+          <ProductCost>{price} &euro;</ProductCost>
         </ProductDetails>
       </ProductWrapper>
     </ProductLink>
@@ -25,7 +31,3 @@ function Product(props) {
 }
 
 export default Product;
-
-Product.propTypes = {
-  to: PropTypes.string.isRequired,
-};

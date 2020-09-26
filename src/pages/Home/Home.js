@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
-import { Container } from '../../styled/shared';
-import { ShopContext } from '../../store';
+import React from 'react';
+import { ProductSection, Slider } from '../../components';
 
-function Home() {
-  const [state] = useContext(ShopContext);
+function Home(props) {
+  const { shoes, categories } = props;
 
-  return (
-    <Container>{state.loading ? 'loading...' : 'loaded content'}</Container>
-  );
+  const productsSections = categories.map((category) => {
+    const { name } = category;
+    return (
+      <ProductSection key={name} title={name}>
+        <Slider title={name} shoes={shoes} />
+      </ProductSection>
+    );
+  });
+  return <>{productsSections}</>;
 }
 
 export default Home;
