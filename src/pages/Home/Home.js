@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Container } from '../../styled/shared';
-import { ShopContext } from '../../store';
 import { ProductSection } from '../../components';
 
-function Home() {
-  const [state] = useContext(ShopContext);
-  const { categories, shoes } = state;
+function Home(props) {
+  const { shoes, categories } = props;
 
   const productsSections = categories.map((category) => {
     const { name } = category;

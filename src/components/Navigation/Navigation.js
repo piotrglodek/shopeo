@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import {
   Nav,
   NavContainer,
@@ -12,15 +12,14 @@ import {
   LogoIcon,
 } from './navigation.components';
 import { Cart } from '../';
-import { ShopContext } from '../../store';
 
-function Navigation() {
+function Navigation(props) {
   const [isOpen, setOpen] = useState(false);
   const toggleMenu = () => setOpen((prevState) => !prevState);
 
-  const [state] = useContext(ShopContext);
+  const { cart, categories } = props;
 
-  const menu = state.categories.map((cat) => {
+  const menu = categories.map((cat) => {
     const { name, slug } = cat;
     return (
       <NavMenuItem key={slug}>
@@ -46,7 +45,7 @@ function Navigation() {
           </NavMenuItem>
           {menu}
         </NavMenu>
-        <Cart />
+        <Cart cartItems={cart} />
         <NavHamburger onClick={toggleMenu}>
           {isOpen ? <CloseIcon /> : <MenuIcon />}
         </NavHamburger>
