@@ -1,19 +1,59 @@
 import React from 'react';
 // Swiper core and components
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Swiper styles
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
-import 'swiper/components/scrollbar/scrollbar.scss';
-// installation Swiper components
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+// components
+import {
+  SwiperArrowNextButton,
+  SwiperArrowPrevButton,
+  SwiperNextArrow,
+  SwiperPrevArrow,
+} from './slider.components';
+import { Product } from '../';
 
-function Slider() {
+// installation Swiper components
+SwiperCore.use([Navigation]);
+
+function Slider(props) {
+  const { shoes, title } = props;
+  const swiperSliders = shoes
+    .filter((shoe) => shoe.category.name === title)
+    .map((shoe) => (
+      <SwiperSlide key={shoe.id}>
+        <Product shoe={shoe} />
+      </SwiperSlide>
+    ));
+
   return (
-    <Swiper>
-      <SwiperSlide></SwiperSlide>
+    <Swiper
+      navigation={{
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }}
+      grabCursor
+      slidesPerView={1}
+      breakpoints={{
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+        1480: {
+          slidesPerView: 4,
+        },
+      }}
+    >
+      <SwiperArrowPrevButton className='swiper-button-prev'>
+        <SwiperPrevArrow />
+      </SwiperArrowPrevButton>
+      <SwiperArrowNextButton className='swiper-button-next'>
+        <SwiperNextArrow />
+      </SwiperArrowNextButton>
+      {swiperSliders}
     </Swiper>
   );
 }
