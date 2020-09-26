@@ -2,12 +2,14 @@ import React from 'react';
 import { useParams, useRouteMatch } from 'react-router-dom';
 // components
 import { Grid, GridItem } from '../../styled/shared';
-import { Product } from '../../components';
+import { Product, ProductSection } from '../../components';
 
 function CategoryPage(props) {
-  const { shoes } = props;
+  const { shoes, categories } = props;
   let { url } = useRouteMatch();
   let { category } = useParams();
+
+  const { name } = categories.find((cat) => cat.slug === category);
 
   const renderShoes = shoes
     .filter((shoe) => shoe.category.slug === category)
@@ -21,9 +23,11 @@ function CategoryPage(props) {
     });
 
   return (
-    <Grid wrap='wrap' sm={50} md={33} lg={25}>
-      {renderShoes}
-    </Grid>
+    <ProductSection title={name}>
+      <Grid wrap='wrap' sm={50} md={33} lg={25}>
+        {renderShoes}
+      </Grid>
+    </ProductSection>
   );
 }
 

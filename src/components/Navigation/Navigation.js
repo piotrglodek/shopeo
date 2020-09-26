@@ -23,7 +23,7 @@ function Navigation(props) {
     const { name, slug } = cat;
     return (
       <NavMenuItem key={slug}>
-        <NavMenuLink onClick={toggleMenu} to={`/${slug}`}>
+        <NavMenuLink onClick={toggleMenu} to={`/category/${slug}`}>
           {name}
         </NavMenuLink>
       </NavMenuItem>

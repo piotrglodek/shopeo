@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Slider } from '../';
 import { Section, SectionTitle } from './productSection.components';
 
 function ProductSection(props) {
-  const { title, shoes } = props;
+  const { title, children } = props;
   return (
     <Section>
       <SectionTitle>{title}</SectionTitle>
-      <Slider title={title} shoes={shoes} />
+      {children}
     </Section>
   );
 }

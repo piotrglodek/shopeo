@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Navigation } from './components';
 import { Container } from './styled/shared';
 // pages
-import { Home, CategoryPage } from './pages';
+import { Home, CategoryPage, CartPage } from './pages';
 // context
 import { ShopContext } from './store';
 
@@ -23,8 +23,13 @@ function App() {
             <Route exact path='/' component={() => <Home {...state} />} />
             <Route
               exact
-              path='/:category'
+              path='/category/:category'
               component={() => <CategoryPage {...state} />}
+            />
+            <Route
+              exact
+              path='/cart'
+              component={() => <CartPage {...state} />}
             />
           </Switch>
         </Container>
