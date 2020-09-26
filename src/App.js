@@ -1,27 +1,36 @@
 import React, { useContext } from 'react';
-
 import { Switch, Route } from 'react-router-dom';
 // components
 import { Navigation } from './components';
+import { Container } from './styled/shared';
 // pages
-import { Home } from './pages';
+import { Home, CategoryPage } from './pages';
 // context
 import { ShopContext } from './store';
 
 function App() {
   const [state] = useContext(ShopContext);
   const { loading } = state;
+
   if (loading) {
     return <p>loading...</p>;
+  } else {
+    return (
+      <>
+        <Navigation {...state} />
+        <Container>
+          <Switch>
+            <Route exact path='/' component={() => <Home {...state} />} />
+            <Route
+              exact
+              path='/:category'
+              component={() => <CategoryPage {...state} />}
+            />
+          </Switch>
+        </Container>
+      </>
+    );
   }
-  return (
-    <>
-      <Navigation {...state} />
-      <Switch>
-        <Route exact path='/' component={() => <Home {...state} />} />
-      </Switch>
-    </>
-  );
 }
 
 export default App;

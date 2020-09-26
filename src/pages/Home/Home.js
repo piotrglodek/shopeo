@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from '../../styled/shared';
 import { ProductSection } from '../../components';
 
 function Home(props) {
@@ -9,7 +8,7 @@ function Home(props) {
     const { name } = category;
     return <ProductSection key={name} title={name} shoes={shoes} />;
   });
-  return <Container>{productsSections}</Container>;
+  return <>{productsSections}</>;
 }
 
 export default Home;
