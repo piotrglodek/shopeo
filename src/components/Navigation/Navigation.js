@@ -20,20 +20,16 @@ function Navigation() {
 
   const [state] = useContext(ShopContext);
 
-  let menu = null;
-  // loading: false -> data has been loaded
-  if (state.loading === false) {
-    menu = state.categories.map((cat) => {
-      const { name, slug } = cat;
-      return (
-        <NavMenuItem key={slug}>
-          <NavMenuLink onClick={toggleMenu} to={`/${slug}`}>
-            {name}
-          </NavMenuLink>
-        </NavMenuItem>
-      );
-    });
-  }
+  const menu = state.categories.map((cat) => {
+    const { name, slug } = cat;
+    return (
+      <NavMenuItem key={slug}>
+        <NavMenuLink onClick={toggleMenu} to={`/${slug}`}>
+          {name}
+        </NavMenuLink>
+      </NavMenuItem>
+    );
+  });
 
   return (
     <Nav>
