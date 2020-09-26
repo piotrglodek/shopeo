@@ -35,10 +35,21 @@ export const NavMenu = styled.ul`
     left: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
     bottom: 0;
     width: 100%;
+    z-index: 999;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: ${({ theme: { color } }) => color.white};
+    padding-top: 6.4rem;
   }
 `;
-export const NavMenuItem = styled.li``;
+export const NavMenuItem = styled.li`
+  @media screen and (max-width: ${({ theme: { bp } }) => bp.tablet}) {
+    width: 100%;
+  }
+`;
 export const NavMenuLink = styled(Link)`
+  display: block;
   text-decoration: none;
   color: ${({ theme: { color } }) => color.black};
   font-size: 1.6rem;
@@ -46,6 +57,10 @@ export const NavMenuLink = styled(Link)`
   transition: text-shadow 0.2s ease;
   &:hover {
     text-shadow: 0px 0px 1px ${({ theme: { color } }) => color.black};
+  }
+  @media screen and (max-width: ${({ theme: { bp } }) => bp.tablet}) {
+    text-align: center;
+    padding: 2rem;
   }
 `;
 export const NavHamburger = styled.button`
@@ -76,4 +91,7 @@ export const LogoIcon = styled(LogoSvg)`
   margin-left: 1rem;
   width: 3rem;
   height: 3rem;
+  @media screen and (max-width: ${({ theme: { bp } }) => bp.tablet}) {
+    display: none;
+  }
 `;
