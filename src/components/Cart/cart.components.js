@@ -35,6 +35,6 @@ export const CartItemsCounter = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.4rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 700;
 `;
