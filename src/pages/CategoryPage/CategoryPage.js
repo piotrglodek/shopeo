@@ -6,7 +6,6 @@ import { Product, ProductSection } from '../../components';
 
 function CategoryPage(props) {
   const { shoes, categories } = props;
-  let { url } = useRouteMatch();
   let { category } = useParams();
 
   const { name } = categories.find((cat) => cat.slug === category);
