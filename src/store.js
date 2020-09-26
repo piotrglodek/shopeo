@@ -12,6 +12,7 @@ const query = gql`
       }
       category {
         name
+        slug
       }
     }
     categories {
