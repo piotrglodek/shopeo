@@ -1,12 +1,11 @@
 import React from 'react';
-import { useParams, useRouteMatch } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 // components
 import { Grid, GridItem } from '../../styled/shared';
 import { Product, ProductSection } from '../../components';
 
 function CategoryPage(props) {
   const { shoes, categories } = props;
-  let { url } = useRouteMatch();
   let { category } = useParams();
 
   const { name } = categories.find((cat) => cat.slug === category);
