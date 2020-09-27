@@ -34,6 +34,8 @@ export const ShopContextProvider = ({ children }) => {
     switch (action.type) {
       case 'FETCH':
         return { ...state, ...action.payload, loading: false };
+      case 'ADD_TO_CART':
+        return { ...state, cart: [...state.cart, action.payload] };
       default:
         return state;
     }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import {
   ProductImage,
@@ -8,17 +8,26 @@ import {
 } from '../../components/Product/product.components';
 import { Grid, GridItem } from '../../styled/shared';
 import { GoBackButton, GoBackArrow } from './shoePage.components';
+import { ShopContext } from '../../store';
 
 export default function ShoePage(props) {
   const { shoes } = props;
   let history = useHistory();
   let { id } = useParams();
   const goToPrevLocation = () => history.goBack();
+  const shoe = shoes.find((shoe) => shoe.id === id);
   const {
     name,
     price,
     image: { url },
-  } = shoes.find((shoe) => shoe.id === id);
+  } = shoe;
+
+  const [state, dispatch] = useContext(ShopContext);
+
+  const handleAddToCart = () => {
+    dispatch({ type: 'ADD_TO_CART', payload: shoe });
+  };
+  console.log(state);
 
   return (
     <>
@@ -32,7 +41,9 @@ export default function ShoePage(props) {
         <GridItem>
           <ProductName>{name}</ProductName>
           <ProductCost>{price} $</ProductCost>
-          <ProductAddToCartBtn>Add to cart</ProductAddToCartBtn>
+          <ProductAddToCartBtn onClick={handleAddToCart}>
+            Add to cart
+          </ProductAddToCartBtn>
         </GridItem>
       </Grid>
     </>
