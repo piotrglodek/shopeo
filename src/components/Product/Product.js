@@ -18,7 +18,7 @@ function Product(props) {
   } = shoe;
 
   return (
-    <ProductLink to={`/shoe/${id}}`}>
+    <ProductLink to={`/shoe/${id}`}>
       <ProductWrapper>
         <ProductImage src={url} />
         <ProductDetails>
