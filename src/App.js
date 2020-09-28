@@ -26,16 +26,8 @@ function App() {
               path='/category/:category'
               component={() => <CategoryPage {...state} />}
             />
-            <Route
-              exact
-              path='/cart'
-              component={() => <CartPage {...state} />}
-            />
-            <Route
-              exact
-              path='/shoe/:id'
-              component={() => <ShoePage {...state} />}
-            />
+            <Route exact path='/cart' component={CartPage} />
+            <Route exact path='/shoe/:id' component={ShoePage} />
           </Switch>
         </Container>
       </>
