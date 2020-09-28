@@ -44,3 +44,20 @@ export const ProductCost = styled.p`
   ${sharedStyle}
   font-size: 2.2rem;
 `;
+
+export const ProductAddToCartBtn = styled.button`
+  margin-top: 3rem;
+  background: ${({ theme: { color } }) => color.primary};
+  outline: none;
+  border: none;
+  padding: 1.4rem 3rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  color: ${({ theme: { color } }) => color.white};
+  font-weight: 700;
+  font-size: 1.6rem;
+  transition: background-color 0.2s ease;
+  &:hover {
+    background-color: ${({ theme: { color } }) => color.darkPrimary};
+  }
+`;
