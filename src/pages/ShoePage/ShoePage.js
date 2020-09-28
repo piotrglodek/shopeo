@@ -10,24 +10,22 @@ import { Grid, GridItem } from '../../styled/shared';
 import { GoBackButton, GoBackArrow } from './shoePage.components';
 import { ShopContext } from '../../store';
 
-export default function ShoePage(props) {
-  const { shoes } = props;
+export default function ShoePage() {
   let history = useHistory();
   let { id } = useParams();
   const goToPrevLocation = () => history.goBack();
-  const shoe = shoes.find((shoe) => shoe.id === id);
+  const [state, dispatch] = useContext(ShopContext);
+  const shoe = state.shoes.find((shoe) => shoe.id === id);
+
   const {
     name,
     price,
     image: { url },
   } = shoe;
 
-  const [state, dispatch] = useContext(ShopContext);
-
   const handleAddToCart = () => {
     dispatch({ type: 'ADD_TO_CART', payload: shoe });
   };
-  console.log(state);
 
   return (
     <>
