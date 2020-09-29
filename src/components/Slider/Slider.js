@@ -1,26 +1,20 @@
 import React from 'react';
-// Swiper core and components
+// Swiper
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Swiper styles
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 // components
-import {
-  SwiperArrowNextButton,
-  SwiperArrowPrevButton,
-  SwiperNextArrow,
-  SwiperPrevArrow,
-} from './slider.components';
+import { CustomNextButton, CustomPrevButton } from './slider.components';
+import { Arrow } from '../../styled_components';
 import { Product } from '../';
-
 // installation Swiper components
 SwiperCore.use([Navigation]);
 
 function Slider(props) {
-  const { shoes, title } = props;
+  const { category, shoes } = props;
   const swiperSliders = shoes
-    .filter((shoe) => shoe.category.name === title)
+    .filter((shoe) => shoe.category.name === category)
     .map((shoe) => (
       <SwiperSlide key={shoe.id}>
         <Product shoe={shoe} />
@@ -29,6 +23,7 @@ function Slider(props) {
 
   return (
     <Swiper
+      spaceBetween={20}
       navigation={{
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -47,12 +42,12 @@ function Slider(props) {
         },
       }}
     >
-      <SwiperArrowPrevButton className='swiper-button-prev'>
-        <SwiperPrevArrow />
-      </SwiperArrowPrevButton>
-      <SwiperArrowNextButton className='swiper-button-next'>
-        <SwiperNextArrow />
-      </SwiperArrowNextButton>
+      <CustomPrevButton className='swiper-button-prev'>
+        <Arrow.LeftIcon />
+      </CustomPrevButton>
+      <CustomNextButton className='swiper-button-next'>
+        <Arrow.RightIcon />
+      </CustomNextButton>
       {swiperSliders}
     </Swiper>
   );

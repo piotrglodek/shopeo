@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 // components
 import { Navigation } from './components';
-import { Container } from './styled/shared';
+import { Layout, Typography } from './styled_components';
 // pages
 import { Home, CategoryPage, CartPage, ShoePage } from './pages';
 // context
@@ -13,12 +13,12 @@ function App() {
   const { loading } = state;
 
   if (loading) {
-    return <p>loading...</p>;
+    return <Typography.Paragraph>loading...</Typography.Paragraph>;
   } else {
     return (
       <>
         <Navigation {...state} />
-        <Container>
+        <Layout.Container>
           <Switch>
             <Route exact path='/' component={() => <Home {...state} />} />
             <Route
@@ -29,7 +29,7 @@ function App() {
             <Route exact path='/cart' component={CartPage} />
             <Route exact path='/shoe/:id' component={ShoePage} />
           </Switch>
-        </Container>
+        </Layout.Container>
       </>
     );
   }
