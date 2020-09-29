@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-import { ReactComponent as nextArrowSvg } from '../../assets/arrow_right.svg';
-import { ReactComponent as prevArrowSvg } from '../../assets/arrow_left.svg';
+import { Arrow } from '../../styled_components';
 
 const shared = css`
   position: absolute;
@@ -29,15 +28,12 @@ const shared = css`
   }
 `;
 
-export const SwiperArrowNextButton = styled.button`
+export const CustomNextButton = styled(Arrow.Button)`
   ${shared}
   right:10px;
 `;
 
-export const SwiperArrowPrevButton = styled.button`
+export const CustomPrevButton = styled(Arrow.Button)`
   ${shared}
   left:10px;
 `;
-
-export const SwiperNextArrow = styled(nextArrowSvg)``;
-export const SwiperPrevArrow = styled(prevArrowSvg)``;

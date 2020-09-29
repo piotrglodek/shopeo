@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Container } from '../../styled/shared';
+import { Layout } from '../../styled_components';
 // icons
-import { ReactComponent as MenuSvg } from '../../assets/menu.svg';
-import { ReactComponent as CloseSvg } from '../../assets/close.svg';
-import { ReactComponent as LogoSvg } from '../../assets/shoe.svg';
+import { ReactComponent as MenuIconSvg } from '../../assets/menu.svg';
+import { ReactComponent as CloseIconSvg } from '../../assets/close.svg';
+import { ReactComponent as LogoIconSvg } from '../../assets/shoe.svg';
 
 export const Nav = styled.nav`
   padding: 1.4rem 0;
   width: 100%;
 `;
-export const NavContainer = styled(Container)`
+export const NavContainer = styled(Layout.Container)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -77,16 +77,16 @@ export const NavHamburger = styled.button`
   }
 `;
 
-export const MenuIcon = styled(MenuSvg)`
+export const MenuIcon = styled(MenuIconSvg)`
   width: 24px;
   fill: ${({ theme: { color } }) => color.black};
 `;
-export const CloseIcon = styled(CloseSvg)`
+export const CloseIcon = styled(CloseIconSvg)`
   width: 24px;
   fill: ${({ theme: { color } }) => color.black};
 `;
 
-export const LogoIcon = styled(LogoSvg)`
+export const LogoIcon = styled(LogoIconSvg)`
   fill: ${({ theme: { color } }) => color.black};
   margin-left: 1rem;
   width: 3rem;
