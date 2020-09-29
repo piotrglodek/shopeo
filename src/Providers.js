@@ -1,14 +1,18 @@
 import React from 'react';
-import StyleProvider from './styled/StyleProvider';
-import RouteProvider from './RouteProvider';
 import { ShopContextProvider } from './store';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { theme, GlobalStyles } from './theme';
 
 function Providers({ children }) {
   return (
     <ShopContextProvider>
-      <StyleProvider>
-        <RouteProvider>{children}</RouteProvider>
-      </StyleProvider>
+      <Router>
+        <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          {children}
+        </ThemeProvider>
+      </Router>
     </ShopContextProvider>
   );
 }

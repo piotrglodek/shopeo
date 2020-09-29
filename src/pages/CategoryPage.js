@@ -1,8 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-// components
-import { Grid, GridItem } from '../../styled/shared';
-import { Product, ProductSection } from '../../components';
+import { Product } from '../components';
+import { Layout, Typography } from '../styled_components';
 
 function CategoryPage(props) {
   const { shoes, categories } = props;
@@ -10,23 +9,24 @@ function CategoryPage(props) {
 
   const { name } = categories.find((cat) => cat.slug === category);
 
-  const renderShoes = shoes
+  const gridItems = shoes
     .filter((shoe) => shoe.category.slug === category)
     .map((shoe) => {
       const { id } = shoe;
       return (
-        <GridItem key={id}>
+        <Layout.GridItem key={id}>
           <Product shoe={shoe} />
-        </GridItem>
+        </Layout.GridItem>
       );
     });
 
   return (
-    <ProductSection title={name}>
-      <Grid wrap='wrap' sm={50} md={33} lg={25}>
-        {renderShoes}
-      </Grid>
-    </ProductSection>
+    <Layout.Divider>
+      <Typography.Heading1>{name}</Typography.Heading1>
+      <Layout.Grid spacing={8} sm={50} md={33} lg={25}>
+        {gridItems}
+      </Layout.Grid>
+    </Layout.Divider>
   );
 }
 

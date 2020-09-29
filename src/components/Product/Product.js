@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  ProductLink,
-  ProductWrapper,
-  ProductImage,
-  ProductDetails,
-  ProductName,
-  ProductCost,
-} from './product.components';
+import { Card } from '../../styled_components';
 
 function Product(props) {
   const { shoe } = props;
@@ -18,15 +11,11 @@ function Product(props) {
   } = shoe;
 
   return (
-    <ProductLink to={`/shoe/${id}`}>
-      <ProductWrapper>
-        <ProductImage src={url} />
-        <ProductDetails>
-          <ProductName>{name}</ProductName>
-          <ProductCost>{price} &euro;</ProductCost>
-        </ProductDetails>
-      </ProductWrapper>
-    </ProductLink>
+    <Card.Wrapper to={`/shoe/${id}`}>
+      <Card.Image src={url} />
+      <Card.Title>{name}</Card.Title>
+      <Card.SubTitle>{price} &euro;</Card.SubTitle>
+    </Card.Wrapper>
   );
 }
 
