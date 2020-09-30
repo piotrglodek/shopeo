@@ -5,17 +5,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="shopeo.netlify.app">
-    <img src="./doc/logo.svg" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Shopeo</h3>
+    <img src="./doc/logo.svg" alt="Logo" width="80" height="80"/>
+    <h3  h3 align="center">Shopeo</h3>
 
   <p align="center">
     Shopeo is a shop with shoes.
     <br />
     <br />
-    <a href="shopeo.netlify.app">View Demo</a>
+    [View Demo](shopeo.netlify.app)
     ·
     <a href="https://github.com/piotrglodek/shopeo/issues">Report Bug</a>
   </p>
@@ -35,7 +32,7 @@
 
 ## About The Project
 
-[App screenshoot](./doc/app.png)
+![App screenshoot](./doc/app.png)
 
 ### Built With
 
