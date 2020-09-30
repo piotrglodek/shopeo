@@ -12,7 +12,7 @@
     Shopeo is a shop with shoes.
     <br />
     <br />
-    [View Demo](shopeo.netlify.app)
+    [View Demo](https://shopeo.netlify.app/)
     ·
     <a href="https://github.com/piotrglodek/shopeo/issues">Report Bug</a>
   </p>
