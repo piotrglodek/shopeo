@@ -19,7 +19,7 @@ const ShoeImage = styled(Card.Image)`
 
 const ShoeText = styled(Typography.Paragraph)`
   padding: 0;
-  margin: 0 1.6rem;
+  margin-left: 1.4rem;
 `;
 
 const DeleteButton = styled(Button)`
@@ -28,6 +28,7 @@ const DeleteButton = styled(Button)`
   margin: 0;
   display: grid;
   place-items: center;
+  margin-left: 1.4rem;
 `;
 
 const DeleteIcon = styled(DeleteIconSvg)`

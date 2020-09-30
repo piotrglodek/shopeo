@@ -29,6 +29,11 @@ function App() {
             <Route exact path='/cart' component={CartPage} />
             <Route exact path='/shoe/:id' component={ShoePage} />
           </Switch>
+          <footer>
+            <Typography.Paragraph>
+              The names and prices of the products were made up for the project.
+            </Typography.Paragraph>
+          </footer>
         </Layout.Container>
       </>
     );
