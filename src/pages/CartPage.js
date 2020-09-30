@@ -4,21 +4,39 @@ import { ShopContext } from '../store';
 import { ReactComponent as DeleteIconSvg } from '../assets/delete.svg';
 import { Layout, Typography, Button, Card } from '../styled_components';
 
-const CartImage = styled(Card.Image)`
-  height: 6rem;
-  @media screen and (min-width: ${({ theme: { bp } }) => bp.tablet}) {
-    height: 8rem;
-  }
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1.4rem 0;
+`;
+
+const ShoeImage = styled(Card.Image)`
+  width: 6.4rem;
+  height: 6.4rem;
+  margin: 0;
+`;
+
+const ShoeText = styled(Typography.Paragraph)`
+  padding: 0;
+  margin: 0 1.6rem;
 `;
 
 const DeleteButton = styled(Button)`
   background-color: transparent;
-  padding: 0.5rem;
+  padding: 0;
   margin: 0;
+  display: grid;
+  place-items: center;
 `;
 
 const DeleteIcon = styled(DeleteIconSvg)`
   fill: ${({ theme: { color } }) => color.danger};
+  width: 3.2rem;
+  height: 3.2rem;
+  &:hover {
+    fill: ${({ theme: { color } }) => color.darkDanger};
+  }
 `;
 
 function CartPage() {
@@ -42,29 +60,14 @@ function CartPage() {
     } = shoe;
 
     return (
-      <Layout.Grid
-        key={id}
-        xs={25}
-        sm={25}
-        jusitfy='space-between'
-        align='center'
-        spacing={4}
-      >
-        <Layout.GridItem>
-          <CartImage src={url} />
-        </Layout.GridItem>
-        <Layout.GridItem>
-          <Typography.Paragraph>{name}</Typography.Paragraph>
-        </Layout.GridItem>
-        <Layout.GridItem>
-          <Typography.Paragraph>{price} &euro;</Typography.Paragraph>
-        </Layout.GridItem>
-        <Layout.GridItem>
-          <DeleteButton onClick={() => handleDeleteShoe(id)}>
-            <DeleteIcon />
-          </DeleteButton>
-        </Layout.GridItem>
-      </Layout.Grid>
+      <Row key={id}>
+        <ShoeImage src={url} />
+        <ShoeText>{name}</ShoeText>
+        <ShoeText isBold>{price} &euro;</ShoeText>
+        <DeleteButton onClick={() => handleDeleteShoe(id)}>
+          <DeleteIcon />
+        </DeleteButton>
+      </Row>
     );
   });
 
