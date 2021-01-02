@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 // components
-import { Navigation } from './components';
+import { Navigation, Spinner } from './components';
 import { Layout, Typography } from './styled_components';
 // pages
 import { Home, CategoryPage, CartPage, ShoePage } from './pages';
@@ -13,7 +13,7 @@ function App() {
   const { loading } = state;
 
   if (loading) {
-    return <Typography.Paragraph>loading...</Typography.Paragraph>;
+    return <Spinner />;
   } else {
     return (
       <>
